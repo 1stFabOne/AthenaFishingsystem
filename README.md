@@ -41,10 +41,10 @@ const fishingSpotsRotations = [
 ];
 
 // Fishingsystem - General Setup
-let fishingTime = 1000; // Only usefull if you are not using random times.
+let fishingTime = 200; // Only usefull if you are not using randomDuration.
 
 const useAutoRotation = true; // Will force player to look at water while fishing. default: true
-const randomDuration = true; // Use random duration for fishing time? default: true
+const randomDuration = false; // Use random duration for fishing time? default: true
 const minDuration = 5000; // Min duration if using random duration.
 const maxDuration = 15000; // Max duration if using random duration.
 
@@ -76,4 +76,5 @@ const blipSprite = 681; // default: 681
 const blipColor = 2; // default: 2
 const blipScale = 1; // default: 1
 const blipShortRange = true; // default: true
+const blipText = `Fishingspot`;
 ```
