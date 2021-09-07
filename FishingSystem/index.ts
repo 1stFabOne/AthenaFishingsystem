@@ -86,8 +86,8 @@ function handleFishing(player: alt.Player) {
     const itemFromRegistry = getFromRegistry(normalFishoutput[getRandomNumber(normalFishoutput.length)]);
     const fishExists = playerFuncs.inventory.isInInventory(player, { name: itemFromRegistry.name });
     const emptySlot = playerFuncs.inventory.getFreeInventorySlot(player);
-    const rodEquipped = playerFuncs.inventory.isInToolbar(player, getFromRegistry('normal fishingrod'));
-    const hasBait = playerFuncs.inventory.isInInventory(player, getFromRegistry('rainworm'));
+    const rodEquipped = playerFuncs.inventory.isInToolbar(player, { name: getFromRegistry('normal fishingrod').name });
+    const hasBait = playerFuncs.inventory.isInInventory(player, { name: getFromRegistry('rainworm').name });
     if (!rodEquipped || !hasBait) { // Player does not have a fishing rod in his toolbar or a bait in his inventory.
         return false;
     } else if (rodEquipped && hasBait) {
@@ -130,12 +130,11 @@ function handleFishing(player: alt.Player) {
                 if (!fishExists) {
                     playerFuncs.inventory.inventoryAdd(player, itemFromRegistry, emptySlot.slot, emptySlot.tab);
                     playerFuncs.emit.notification(player, `You've catched a ${itemFromRegistry.name}`);
-                    player.setMeta("isFishing", false);
                 } else if (fishExists) {
                     player.data.inventory[fishExists.tab][fishExists.index].quantity += itemFromRegistry.quantity;
                     playerFuncs.emit.notification(player, `You've catched a ${itemFromRegistry.name}`);
-                    player.setMeta("isFishing", false);
                 }
+                player.setMeta("isFishing", false);
                 playerFuncs.save.field(player, 'inventory', player.data.inventory);
                 playerFuncs.save.field(player, 'toolbar', player.data.toolbar);
                 playerFuncs.sync.inventory(player);
