@@ -64,7 +64,7 @@ const epicFishingRodItem: Item = {
 const registerEpicFishingRod: Item = deepCloneObject<Item>(epicFishingRodItem);
 appendToItemRegistry(registerEpicFishingRod); */
 
-const nomralFishOneItem: Item = {
+const normalFishOneItem: Item = {
     name: 'Normal-Fish-1',
     description: 'DEBUG: Placeholderfish',
     icon: 'crate',
@@ -79,7 +79,7 @@ const nomralFishOneItem: Item = {
         // N/A.
     }
 }
-const registerNormalFishOne: Item = deepCloneObject<Item>(nomralFishOneItem);
+const registerNormalFishOne: Item = deepCloneObject<Item>(normalFishOneItem);
 appendToItemRegistry(registerNormalFishOne);
 
 const normalFishTwoItem: Item = {
