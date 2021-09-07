@@ -58,6 +58,7 @@ const blipSprite = 681; // default: 681
 const blipColor = 2; // default: 2
 const blipScale = 1; // default: 1
 const blipShortRange = true; // default: true
+const blipText = `Fishingspot`;
 
 alt.on(SYSTEM_EVENTS.BOOTUP_ENABLE_ENTRY, loadAllFishingSpots)
 function loadAllFishingSpots() {
@@ -75,7 +76,7 @@ function loadAllFishingSpots() {
             color: blipColor,
             shortRange: blipShortRange,
             scale: blipScale,
-            text: 'Fishingspot'
+            text: blipText
         });
     });
     alt.log(`Creating ${fishingSpots.length} Fishing Spot(s)...`);
@@ -123,7 +124,7 @@ function handleFishing(player: alt.Player) {
                     return;
                 }
                 // Fishing Rewards...
-                if (player.data.inventory[hasBait.tab][hasBait.index].quantity <= 0) { alt.log("test"); return; }
+                if (player.data.inventory[hasBait.tab][hasBait.index].quantity <= 0) { return; }
                 player.data.inventory[hasBait.tab][hasBait.index].quantity -= 1;
                 fishingRod.data.durability -= 1;
                 if (!fishExists) {
